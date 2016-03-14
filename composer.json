@@ -1,0 +1,19 @@
+{
+    "name": "vanqard/valideer",
+    "description": "A simple, memory-efficient framework-agnostic validation package",
+    "type": "Validator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thunder Raven-Stoker",
+            "email": "thunder@vanqard.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Vanqard\\": "src/"
+      }
+    }
+}
