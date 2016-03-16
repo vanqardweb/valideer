@@ -24,21 +24,23 @@ class Date extends AbstractRule
      */
     public function isValid(DataField $field, array $params = [])
     {
-        $result = false;
-
         $fieldValue = $field->getValue();
 
-        if ($fieldValue instanceof \DateTime) {
-            $result = true;
-        } else if (is_string($fieldValue)) {
+        if (!$fieldValue instanceof \DateTime) {
             try {
                 $fieldValue = new \DateTime($fieldValue);
-                $result = true;
             } catch (\Exception $e) {
-                // Do nothing - result already false
+                // not a valid date string
+                return false;
             }
         }
 
-        return $result;
+        if (!array_key_exists('before', $params)) {
+            return false;
+        }
+
+        $testValue = ($params['before'] instanceof \DateTime) ?: new \DateTime($params['before']);
+
+        return ($testValue > $fieldValue);
     }
 }
