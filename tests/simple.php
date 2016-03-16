@@ -5,7 +5,7 @@ use Vanqard\Valideer\Validator;
 
 $testArray = [
   'username' => 'thunder@vanqard.com',
-  'password' => 'house123'
+  'password' => 'password'
 ];
 
 
